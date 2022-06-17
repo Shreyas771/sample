@@ -34,3 +34,40 @@ document.write(output);
 <body>
 </body>
 </html>
+-------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#grad1 {
+ height: 1000px; width: 1500px;
+ /*background-color: white;*/
+ background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+table,tr,th{
+            border : 2px solid black; 
+}
+</style>
+</head>
+<body>
+
+<div id="grad1" style="text-align:center;margin:auto;color:#888888;font-size:40px;fontweight:bold">
+
+
+<table>
+	<tr>
+		<th>mysore tourist places </th>
+		<th> information</th>
+	</tr>
+<tr>
+		<td>mysore tourist places </td>
+		<td> information</td>
+	</tr>
+<tr>
+		<td>mysore tourist places </td>
+		<td> information</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>
