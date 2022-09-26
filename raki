@@ -1,614 +1,442 @@
----------------------------------------------->CSS PROGRAMS<--------------------------------------------------
-1]BACKGROUND COLOUR
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body{background-color:lightblue;}
-</style>
-</head>
-<body>
-BACKGROUND COLOUR
-</body>
-</html>
-.....
-.....
-.....
-2]element background colour
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-h1{background-color:lightblue;}
-</style>
-</head>
-<body>
-  <h1>
-ELEMENT BACKGROUND COLOUR
-</h1>
-</body>
-</html>
-....
-......
-......
-3]TEXT COLOUR
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-h2{color:red;}
-</style>
-</head>
-<body>
-  <h2>
-    TEXT COLOUR</h2>
-</body>
-</html>
-.....
-.....
-.....
-4]BORDER colour
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-h1{border:5px solid black;
-width:20%;}
-</style>
-</head>
-<body>
-<h1>
-  BORDER COLOUR</h1>
-</body>
-</html>
-.....
-.....
-.....
-5]BACKGROUND IMAGE
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-  body{background-image:url("image name.jpg");}
-</style>
-</head>
-<body>
-BACKGROUND IMAGE
-</body>
-</html>
-.....
-.....
-.....
-6]CIRCLED IMAGE
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-img {
- border-radius: 50%;
-}
-</style>
-</head>
-<body>
-<h2>Circled Image</h2>
-<img src="image name.jpg" width="300" height="300">
-</body>
-</html>
-.....
-.....
-.....
-7]RAINBOW BACKGROUND
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-#grad1 {
- height: 55px;
- background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-}
-</style>
-</head>
-<body>
-<div id="grad1" style="text-align:center;font-size:40px;">
-Rainbow Background
-</div>
-</body>
-</html>
-.....
-......
-......
-8]
-BUTTON
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.button {
- background-color:green;
- color: white;
- padding: 15px 32px;
- text-align: center;
- font-size: 16px;
- margin: 4px 2px;
- cursor: pointer;
-}
-.button2 {background-color: blue;}
-.button3 {background-color: red;}
-.button4 {background-color: yellow;}
-.button5 {background-color: black;}
-</style>
-</head>
-<body>
-<h2>Button Colors</h2>
-<button class="button">Green</button>
-<button class="button button2">Blue</button>
-<button class="button button3">Red</button>
-<button class="button button4">Gray</button>
-<button class="button button5">Black</button>
-</body>
-</html>
-..........
-.............
-..........
-9]VERTICAL NAVIGATION BAR
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-ul {
- width: 200px;
- background-color: white;
-}
-li a {
- color:black;
- display: block;
- padding: 8px 16px;
-}
-li a.active {
- background-color:green;
- color: white;
-}
-li a:hover:not(.active) {
- background-color:blue;
- color: white;
-}
-</style>
-</head>
-<body>
-<h2>Vertical Navigation Bar</h2>
-<p>In this example, we create an "active" class with a green background color and a white text.
-The class is added to the "Home" link.</p>
-Skill Laboratory-CSS
-25
-<ul>
- <li><a class="active" href="#home">Home</a></li>
- <li><a href="#news">News</a></li>
- <li><a href="#contact">Contact</a></li>
- <li><a href="#about">About</a></li>
-</ul>
-</body>
-</html>
-........................
-....................
-..............
-10]DROPDOWN MENU
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
- background-color:white;
-}
-ul {
-  overflow:hidden;
- background-color:black;
-}
-li {
- float: left;
-}
-li a, .dropbtn {
- display: inline-block;
- color: white;
- text-align: center;
- padding: 14px 16px;
-}
-li a:hover, .dropdown:hover .dropbtn {
- background-color: red;
-}
-.dropdown-content {
-  display:none;
- position: absolute;
- background-color: lightblue;
- min-width: 160px;
-}
-.dropdown-content a {
- color: black;
- padding: 12px 16px;
- display: block;
- text-align: left;
-}
-.dropdown-content a:hover {background-color:yellow;}
-.dropdown:hover .dropdown-content {
- display: block;
-}
+1.a) linear convolution using inbuilt function.
 
-</style>
-</head>
-<body>
-<ul>
- <li><a href="#home">Home</a></li>
- <li><a href="#news">News</a></li>
- <li class="dropdown">
- <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
- <div class="dropdown-content">
- <a href="#">Link 1</a>
- <a href="#">Link 2</a>
- <a href="#">Link 3</a>
- </div>
- </li>
-</ul>
-<h3>Dropdown Menu inside a Navigation Bar</h3>
-<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
-</body>
-</html>
--------------------------------------------------->JAVA SCRIPT<-----------------------------------------------------
 
-1. Create a simple multiplication table asking the user the number of rows and columns he wants.
-<html>
-<head>
-  <title>Multiplication Table</title>
-  <script type="text/javascript">
-    var rows = prompt("How many rows for your multiplication table?");
-    var cols = prompt("How many columns for your multiplication table?");
-    if(rows == "" || rows == null)
-   		 rows = 10;
-    if(cols== "" || cols== null)
-   		 cols = 10;
-    createTable(rows, cols);
-    function createTable(rows, cols)
-    {
-      var j=1;
-      var output = "<table border='1' width='500' cellspacing='0'cellpadding='5'>";
-      for(i=1;i<=rows;i++)
-      {
-    	output = output + "<tr>";
-        while(j<=cols)
-        {
-  		  output = output + "<td>" + i*j + "</td>";
-   		  j = j+1;
-   		}
-   		 output = output + "</tr>";
-   		 j = 1;
-    }
-    output = output + "</table>";
-    document.write(output);
-    }
-  </script>
-</head>
-<body>
-</body>
-</html>
-.......
-.......
-.......
+clc;
+clear all;
+close all;
+x1 = [1 4 2]
+x2 = [2 3 5]
+z = conv(x1,x2)
+subplot(2,2,1)
+stem(x1)
+xlabel('x')
+ylabel('y')
+title('first input signal)
+subplot(2,2,2)
+stem(x2)
+xlabel('x')
+ylabel('y')
+title('second input signal')
+subplot(2,2,3)
+stem(z)
+xlabel('x')
+ylabel('y')
+title('convolution output')
 
-3.<html>
-<head>
-	<title>Objects!!!</title>
-	<script type="text/javascript">
-      var student = new Object();
-      student.fName = "John";
-      student.lName = "Smith";
-      student.id = 5;
-      student.markE = 76;
-      student.markM = 99;
-      student.markS = 87;
-      student.calculateAverage = function()
-      {
-      	return (student.markE + student.markM + student.markS)/3;
-      };
-      student.displayDetails = function()
-      {
-        document.write("Student Id: " + student.id + "<br />");
-        document.write("Name: " + student.fName + " " + student.lName + "<br />");
-        var avg = student.calculateAverage();
-        document.write("Average Marks: " + avg);
-      };
-		student.displayDetails();
-	</script>
-</head>
-<body>
-</body>
-</html>
-'''''''''
-'''''''''
-'''''''''
-4.<html>
-<head>
-	<script type="text/javascript">
-		function Student(first, last, id, english, maths, science)
-        {
-          this.fName = first;
-          this.lName = last;
-          this.id = id;
-          this.markE = english;
-          this.markM = maths;
-          this.markS = science;
-          this.calculateAverage = function()
-          {
-         	 return (this.markE + this.markM + this.markS)/3;
-          }
-		  this.displayDetails = function()
-		  {
-            document.write("Student Id: " + this.id + "<br />");
-            document.write("Name: " + this.fName + " " + this.lName + "<br />");
-            var avg = this.calculateAverage();
-            document.write("Average Marks: " + avg + "<br /><br />");
-		  }
-		}
-        var st1 = new Student("John", "Smith", 15, 85, 79, 90);
-        var st2 = new Student("Hannah", "Turner", 23, 75, 80, 82);
-        var st3 = new Student("Kevin", "White", 4, 93, 89, 90);
-        var st4 = new Student("Rose", "Taylor", 11, 55, 63, 45);
-        st1.displayDetails();
-        st2.displayDetails();
-        st3.displayDetails();
-        st4.displayDetails();
-	</script>
-</head>
-<body>
-</body>
-</html>
-.........
-.........
-.........
-5.The window.location.assign() method loads a new document.
-<html>
-<head>
-<script>
-function newDoc() {
-  window.location.assign("https://www.w3schools.com")
-}
-</script>
-</head>
-<body>
 
-<input type="button" value="Load new document" onclick="newDoc()">
 
-</body>
-</html>
-........
-........
-.........
-6. google chart
-<!DOCTYPE html>
-<html>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<body>
-<div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
+b)using formula method 
 
-<script>
-google.charts.load('current',{packages:['corechart']});
-google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-// Set Data
-var data = google.visualization.arrayToDataTable([
-  ['Price', 'Size'],
-  [50,7],[60,8],[70,8],[80,9],[90,9],
-  [100,9],[110,10],[120,11],
-  [130,14],[140,14],[150,15]
-]);
-// Set Options
-var options = {
-  title: 'House Prices vs. Size',
-  hAxis: {title: 'Square Meters'},
-  vAxis: {title: 'Price in Millions'},
-  legend: 'none'
-};
-// Draw
-var chart = new google.visualization.LineChart(document.getElementById('myChart'));
-chart.draw(data, options);
-}
-</script>
+clc;
+clear all;
+close all;
+x = input('Enter first sequence =')
+h = input('enter the second sequence =')
+l1 = length(x)
+l2 = length(h)
+N = l1+l2-1
+x = [x,zeros(1,N-l1)]
+h = [h,zeros(1,N-l2)]
+for i = 1:N
+	y(i)=0
+	for j = 1:N
+		k = i-j+1
+		if k<=0
+			k = k + N
+		end
+	y(i)=y(i)+x(j)*h(k)
+	end
+end
+disp(y)
+stem(y)
+xlabel('x')
+ylabel('y')
+title('convolution output')
 
-</body>
-</html>
-.........
-.........
-.........
-7.<!DOCTYPE html>
-<html>
-<body>
 
-<canvas id="myCanvas" width="400" height="400" style="border:1px solid grey"></canvas>
 
-<script>
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
-canvas.height = canvas.width;
-ctx.transform(1, 0, 0, -1, 0, canvas.height)
 
-const xArray = [50,60,70,80,90,100,110,120,130,140,150];
-const yArray = [7,8,8,9,9,9,10,11,14,14,15];
+c)matrix method
 
-ctx.fillStyle = "red";
-for (let i = 0; i < xArray.length-1; i++) {
-  let x = xArray[i]*400/150;
-  let y = yArray[i]*400/15;
-  ctx.beginPath();
-  ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
-  ctx.fill();
-}
-</script>
 
-</body>
-</html>
-........
-........
-........
-8.<!DOCTYPE html>
-<html>
-<body>
+clc;
+clear all;
+close all;
+x = input('Enter first sequence =')
+h = input('enter the second sequence =')
+l1 = length(x)
+l2 = length(h)
+N = l1+l2-1
+x = [x,zeros(1,N-l1)]
+h = [h,zeros(1,N-l2)]
+x1 = x'
+h1 = h'
+for n = 1:N-1
+	x1 = [x1,circshift(x',n)]
+end
+y = x1*h'
+disp(y)
+stem(y)
+xlabel('x')
+ylabel('y')
+title('convolution output')
 
-<h2>JavaScript Validation</h2>
 
-<p>Enter a number and click OK:</p>
 
-<input id="id1" type="number" min="100" max="300" required>
-<button onclick="myFunction()">OK</button>
+2.a)  circular convolution using inbuilt function
 
-<p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
+clc;
+clear all;
+close all;
+x1 = [1 4 2]
+x2 = [2 3 5]
+l1=length(x1)
+l2 = length(x2)
+L = max(l1,l2)
+z = conv(x1,x2,L)
+subplot(2,2,1)
+stem(x1)
+xlabel('x')
+ylabel('y')
+title('first input signal)
+subplot(2,2,2)
+stem(x2)
+xlabel('x')
+ylabel('y')
+title('second input signal')
+subplot(2,2,3)
+stem(z)
+xlabel('x')
+ylabel('y')
+title('convolution output')
 
-<p id="demo"></p>
 
-<script>
-function myFunction() {
-  const inpObj = document.getElementById("id1");
-  if (!inpObj.checkValidity()) {
-    document.getElementById("demo").innerHTML = inpObj.validationMessage;
-  } else {
-    document.getElementById("demo").innerHTML = "Input OK";
-  } 
-} 
-</script>
+b) formula method 
 
-</body>
-</html>
------------------------------------------------------>PHP<-------------------------------------------------------
-1. Even Odd Program
-<?php  
-$number=1233456;  
-if($number%2==0)  
-{  
- echo "$number is Even Number";   
-}  
-else  
-{  
- echo "$number is Odd Number";  
-}   
-?>  
-.......
-.......
-.......
-2. Area of Triangle
-<?php  
- $base = 10;  
- $height = 15;  
- echo "area with base $base and height $height= " . ($base * $height) / 2;  
- ?>  
-.........
-.........
-.........
-3.Palindrome Number
-<?php  
-function palindrome($n){  
-$number = $n;  
-$sum = 0;  
-while(floor($number)) {  
-$rem = $number % 10;  
-$sum = $sum * 10 + $rem;  
-$number = $number/10;  
-}  
-return $sum;  
-}  
-$input = 1235321;  
-$num = palindrome($input);  
-if($input==$num){  
-echo "$input is a Palindrome number";  
-} else {  
-echo "$input is not a Palindrome";  
-}  
-?>  
-...........
-...........
-............
-4. Fibonacci Series
-<?php  
-$num = 0;  
-$n1 = 0;  
-$n2 = 1;  
-echo "<h3>Fibonacci series for first 12 numbers: </h3>";  
-echo "\n";  
-echo $n1.' '.$n2.' ';  
-while ($num < 10 )  
-{  
-    $n3 = $n2 + $n1;  
-    echo $n3.' ';  
-    $n1 = $n2;  
-    $n2 = $n3;  
-    $num = $num + 1;  
-?>  
-...........
-...........
-...........
-5.Armstrong Number
-program checks whether 407 is Armstrong or not.
-<?php  
-$num=407;  
-$total=0;  
-$x=$num;  
-while($x!=0)  
-{  
-$rem=$x%10;  
-$total=$total+$rem*$rem*$rem;  
-$x=$x/10;  
-}  
-if($num==$total)  
-{  
-echo "Yes it is an Armstrong number";  
-}  
-else  
-{  
-echo "No it is not an armstrong number";  
-}  
-?>  
-.........
-.........
-.........
-6.Prime Number
-<?php  
-$count = 0;  
-$num = 2;  
-while ($count < 15 )  
-{  
-$div_count=0;  
-for ( $i=1; $i<=$num; $i++)  
-{  
-if (($num%$i)==0)  
-{  
-$div_count++;  
-}  
-}  
-if ($div_count<3)  
-{  
-echo $num." , ";  
-$count=$count+1;  
-}  
-$num=$num+1;  
-}  
-?> 
---------------------------------------------------->SQL COMMANDS<---------------------------------------------
-1.FOR CREATING TABLE
-create table <table_name> (col_1,col_2,.....col_n);
 
-2.TO INSERT VALUES 
-insert into <table_name> values(value_1,value_2.....value_n);
 
-3. DISPLAY WHOLE TABLE
- select *from <table_name>;
- 
-4. DISPLAY PARTICULAR COLUMN
- select *from <table_name> where col_name=value;
+clc;
+clear all;
+close all;
+x = input('Enter first sequence =')
+h = input('enter the second sequence =')
+l1 = length(x)
+l2 = length(h)
+N = max(l1,l2)
+x = [x,zeros(1,N-l1)]
+h = [h,zeros(1,N-l2)]
+for i = 1:N
+	y(i)=0
+	for j = 1:N
+		k = i-j+1
+		if k<=0
+			k = k + N
+		end
+	y(i)=y(i)+x(j)*h(k)
+	end
+end
+disp(y)
+stem(y)
+xlabel('x')
+ylabel('y')
+title('convolution output')
 
-5.TO DELETE 
- delete from <table_name> where col_name=value;
- 
-6. TO UPDATE VALUES
- update <table_name> set value=.. where col=..
- 
----------CREATING PRIMARY KEY-------------
-create table student(name char(40),roll_no,age, id int ,PRIMARY KEY (id));
 
+
+c) matrix method 
+
+
+clc;
+clear all;
+close all;
+x = input('Enter first sequence =')
+h = input('enter the second sequence =')
+l1 = length(x)
+l2 = length(h)
+N = max(l1,l2)
+x = [x,zeros(1,N-l1)]
+h = [h,zeros(1,N-l2)]
+x1 = x'
+h1 = h'
+for n = 1:N-1
+	x1 = [x1,circshift(x',n)]
+end
+y = x1*h'
+disp(y)
+stem(y)
+xlabel('x')
+ylabel('y')
+title('convolution output')
+
+
+3.a) n-point dft 
+
+
+clc;
+clear all;
+close all;
+x = input('input sequence')
+N = input('N=')
+L = length(x)
+x = [x,zeros(1,N-L)]
+for k = 0:N-1
+	for n = 0:N-1
+		p = exp((-j*2*pi*k*n)/N)
+		w(k+1,n+1) = p
+	end
+end
+y = x*w
+disp(y)
+h = abs(y)
+disp(h)
+subplot(1,2,1)
+stem(h)
+xlabel('x')
+ylabel('y')
+title('absolute value of y')
+h1 = angle(y)
+disp(h1)
+subplot(1,2,2)
+stem(h')
+xlabel('x')
+ylabel('y')
+title('angle of y')
+
+
+
+
+
+b)n point idft
+
+
+clc;
+clear all;
+close all;
+x = input('input sequence')
+N = input('N=')
+L = length(x)
+x = [x,zeros(1,N-L)]
+for k = 0:N-1
+	for n = 0:N-1
+		p = exp((j*2*pi*k*n)/N)
+		w(k+1,n+1) = p
+	end
+end
+y = (x*w)/N
+y1 = round(y)
+disp(y1)
+xlabel('x')
+ylabel('y')
+title('IDFT')
+
+
+
+4.a)circular convolution using dft and idft
+
+
+clc;
+clear all;
+close all;
+x = input('Enter first sequence =')
+h = input('enter the second sequence =')
+N = input('N=')
+l1 = length(x)
+l2 = length(h)
+L = max(l1,l2)
+for k = 0:N-1
+	for n = 0:N-1
+		p = exp((-j*2*pi*k*n)/N)
+		w(k+1,n+1) = p
+	end
+end
+X = x*w
+H = h*w
+Y = X.*H
+for k = 0:N-1
+	for n = 0:N-1
+		p = exp((j*2*pi*k*n)/N)
+		w(k+1,n+1) = p
+	end
+end
+y = (Y*w)/N
+y1= round(y)
+disp(y1)
+stem(y1)
+xlabel('x')
+ylabel('y')
+title('circular convolution')
+
+
+b) linear convolution using dft and idft
+
+
+clc;
+clear all;
+close all;
+x = input('Enter first sequence =')
+h = input('enter the second sequence =')
+l1 = length(x)
+l2 = length(h)
+N = l1+l2-1
+x = [x,zeros(1,N-l1)]
+h = [h,zeros(1,N-l2)]
+for k = 0:N-1
+	for n = 0:N-1
+		p = exp((-j*2*pi*k*n)/N)
+		w(k+1,n+1) = p
+	end
+end
+X = x*w
+H = h*w
+Y = X.*H
+for k = 0:N-1
+	for n = 0:N-1
+		p = exp((j*2*pi*k*n)/N)
+		w(k+1,n+1) = p
+	end
+end
+y = (Y*w)/N
+y1 = round(y)
+disp(y1)
+stem(y1)
+xlabel('x')
+ylabel('y')
+title('linear convolution')
+
+
+
+
+5.a) auto correction by input method
+
+clc;
+clear all;
+close all;
+x = input('input sequence')
+L = length(x)
+y = xcorr(x)
+disp(y)
+subplot(1,2,1)
+stem(x)
+xlabel('x')
+ylabel('y')
+title('input signal')
+subplot(1,2,2)
+stem(y)
+xlabel('x')
+ylabel('y')
+title('output signal')
+
+
+b)energy condition
+
+clc;
+clear all;
+close all;
+x = input('input sequence = ')
+l1 = length(x)
+y = xcorr(x)
+disp(y)
+l2 = length(y)
+y1 = coil(l2/2)
+disp(y1)
+x1=sum(x.^2)
+y2=y(y1)
+if(y2==x1)
+	disp('energy condition satisfied')
+else 
+	disp('energy condition is not satisfied')
+end
+
+
+
+c) symmetric condition 
+
+
+clc;
+clear all;
+close all;
+x = input('input sequence')
+l1 = length(x)
+y = xcorr(x)
+disp(y)
+l2=length(y)
+y1=coil(l2/2)
+disp(y1)
+for p =0:y1-1
+	if(y(y1-1)==y(y1+1))
+		disp('y is symmetric')
+	else
+		disp('y is not symmetric')
+	end
+end
+
+
+
+
+
+
+
+
+d)  auto correction using formula method
+
+
+clc;
+clear all;
+close all;
+x = input('input sequence')
+h = flip(x)
+l1 = length(x)
+l2 = length(h)
+N = l1+l2-1
+x = [x,zeros(1,N-l1)]
+h = [h,zeros(1,N-l2)]
+for i = 1:N
+	y(i)=0
+	for j = 1:N
+		k = i-j+1
+		if k<=0
+			k = k + N
+		end
+	y(i)=y(i)+x(j)*h(k)
+	end
+end
+disp(y)
+stem(y)
+xlabel('x')
+ylabel('y')
+title('output sequence')
+
+
+
+
+e) cross correction 
+
+
+clc;
+clear all;
+close all;
+x = input('first input sequence = ')
+z = input('second input sequence = ')
+l1 = length(x)
+l2 = length(z)
+y = xcorr(x,z)
+y1=round(y)
+disp(y1)
+subplot(2,2,1)
+stem(x)
+xlabel('x')
+ylabel('y')
+title('first input signal)
+subplot(2,2,2)
+stem(z)
+xlabel('x')
+ylabel('y')
+title('second input signal')
+subplot(2,2,3)
+stem(y1)
+xlabel('x')
+ylabel('y')
+title('output sequence')
 
 
