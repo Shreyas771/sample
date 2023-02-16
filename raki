@@ -1,442 +1,286 @@
-1.a) linear convolution using inbuilt function.
-
-
-clc;
-clear all;
-close all;
-x1 = [1 4 2]
-x2 = [2 3 5]
-z = conv(x1,x2)
-subplot(2,2,1)
-stem(x1)
-xlabel('x')
-ylabel('y')
-title('first input signal)
-subplot(2,2,2)
-stem(x2)
-xlabel('x')
-ylabel('y')
-title('second input signal')
-subplot(2,2,3)
-stem(z)
-xlabel('x')
-ylabel('y')
-title('convolution output')
-
-
-
-b)using formula method 
-
-
-clc;
-clear all;
-close all;
-x = input('Enter first sequence =')
-h = input('enter the second sequence =')
-l1 = length(x)
-l2 = length(h)
-N = l1+l2-1
-x = [x,zeros(1,N-l1)]
-h = [h,zeros(1,N-l2)]
-for i = 1:N
-	y(i)=0
-	for j = 1:N
-		k = i-j+1
-		if k<=0
-			k = k + N
-		end
-	y(i)=y(i)+x(j)*h(k)
-	end
-end
-disp(y)
-stem(y)
-xlabel('x')
-ylabel('y')
-title('convolution output')
-
-
-
-
-c)matrix method
-
-
-clc;
-clear all;
-close all;
-x = input('Enter first sequence =')
-h = input('enter the second sequence =')
-l1 = length(x)
-l2 = length(h)
-N = l1+l2-1
-x = [x,zeros(1,N-l1)]
-h = [h,zeros(1,N-l2)]
-x1 = x'
-h1 = h'
-for n = 1:N-1
-	x1 = [x1,circshift(x',n)]
-end
-y = x1*h'
-disp(y)
-stem(y)
-xlabel('x')
-ylabel('y')
-title('convolution output')
-
-
-
-2.a)  circular convolution using inbuilt function
-
-clc;
-clear all;
-close all;
-x1 = [1 4 2]
-x2 = [2 3 5]
-l1=length(x1)
-l2 = length(x2)
-L = max(l1,l2)
-z = conv(x1,x2,L)
-subplot(2,2,1)
-stem(x1)
-xlabel('x')
-ylabel('y')
-title('first input signal)
-subplot(2,2,2)
-stem(x2)
-xlabel('x')
-ylabel('y')
-title('second input signal')
-subplot(2,2,3)
-stem(z)
-xlabel('x')
-ylabel('y')
-title('convolution output')
-
-
-b) formula method 
-
-
-
-clc;
-clear all;
-close all;
-x = input('Enter first sequence =')
-h = input('enter the second sequence =')
-l1 = length(x)
-l2 = length(h)
-N = max(l1,l2)
-x = [x,zeros(1,N-l1)]
-h = [h,zeros(1,N-l2)]
-for i = 1:N
-	y(i)=0
-	for j = 1:N
-		k = i-j+1
-		if k<=0
-			k = k + N
-		end
-	y(i)=y(i)+x(j)*h(k)
-	end
-end
-disp(y)
-stem(y)
-xlabel('x')
-ylabel('y')
-title('convolution output')
-
-
-
-c) matrix method 
-
-
-clc;
-clear all;
-close all;
-x = input('Enter first sequence =')
-h = input('enter the second sequence =')
-l1 = length(x)
-l2 = length(h)
-N = max(l1,l2)
-x = [x,zeros(1,N-l1)]
-h = [h,zeros(1,N-l2)]
-x1 = x'
-h1 = h'
-for n = 1:N-1
-	x1 = [x1,circshift(x',n)]
-end
-y = x1*h'
-disp(y)
-stem(y)
-xlabel('x')
-ylabel('y')
-title('convolution output')
-
-
-3.a) n-point dft 
-
-
-clc;
-clear all;
-close all;
-x = input('input sequence')
-N = input('N=')
-L = length(x)
-x = [x,zeros(1,N-L)]
-for k = 0:N-1
-	for n = 0:N-1
-		p = exp((-j*2*pi*k*n)/N)
-		w(k+1,n+1) = p
-	end
-end
-y = x*w
-disp(y)
-h = abs(y)
-disp(h)
-subplot(1,2,1)
-stem(h)
-xlabel('x')
-ylabel('y')
-title('absolute value of y')
-h1 = angle(y)
-disp(h1)
-subplot(1,2,2)
-stem(h')
-xlabel('x')
-ylabel('y')
-title('angle of y')
-
-
-
-
-
-b)n point idft
-
-
-clc;
-clear all;
-close all;
-x = input('input sequence')
-N = input('N=')
-L = length(x)
-x = [x,zeros(1,N-L)]
-for k = 0:N-1
-	for n = 0:N-1
-		p = exp((j*2*pi*k*n)/N)
-		w(k+1,n+1) = p
-	end
-end
-y = (x*w)/N
-y1 = round(y)
-disp(y1)
-xlabel('x')
-ylabel('y')
-title('IDFT')
-
-
-
-4.a)circular convolution using dft and idft
-
-
-clc;
-clear all;
-close all;
-x = input('Enter first sequence =')
-h = input('enter the second sequence =')
-N = input('N=')
-l1 = length(x)
-l2 = length(h)
-L = max(l1,l2)
-for k = 0:N-1
-	for n = 0:N-1
-		p = exp((-j*2*pi*k*n)/N)
-		w(k+1,n+1) = p
-	end
-end
-X = x*w
-H = h*w
-Y = X.*H
-for k = 0:N-1
-	for n = 0:N-1
-		p = exp((j*2*pi*k*n)/N)
-		w(k+1,n+1) = p
-	end
-end
-y = (Y*w)/N
-y1= round(y)
-disp(y1)
-stem(y1)
-xlabel('x')
-ylabel('y')
-title('circular convolution')
-
-
-b) linear convolution using dft and idft
-
-
-clc;
-clear all;
-close all;
-x = input('Enter first sequence =')
-h = input('enter the second sequence =')
-l1 = length(x)
-l2 = length(h)
-N = l1+l2-1
-x = [x,zeros(1,N-l1)]
-h = [h,zeros(1,N-l2)]
-for k = 0:N-1
-	for n = 0:N-1
-		p = exp((-j*2*pi*k*n)/N)
-		w(k+1,n+1) = p
-	end
-end
-X = x*w
-H = h*w
-Y = X.*H
-for k = 0:N-1
-	for n = 0:N-1
-		p = exp((j*2*pi*k*n)/N)
-		w(k+1,n+1) = p
-	end
-end
-y = (Y*w)/N
-y1 = round(y)
-disp(y1)
-stem(y1)
-xlabel('x')
-ylabel('y')
-title('linear convolution')
-
-
-
-
-5.a) auto correction by input method
-
-clc;
-clear all;
-close all;
-x = input('input sequence')
-L = length(x)
-y = xcorr(x)
-disp(y)
-subplot(1,2,1)
-stem(x)
-xlabel('x')
-ylabel('y')
-title('input signal')
-subplot(1,2,2)
-stem(y)
-xlabel('x')
-ylabel('y')
-title('output signal')
-
-
-b)energy condition
-
-clc;
-clear all;
-close all;
-x = input('input sequence = ')
-l1 = length(x)
-y = xcorr(x)
-disp(y)
-l2 = length(y)
-y1 = coil(l2/2)
-disp(y1)
-x1=sum(x.^2)
-y2=y(y1)
-if(y2==x1)
-	disp('energy condition satisfied')
-else 
-	disp('energy condition is not satisfied')
-end
-
-
-
-c) symmetric condition 
-
-
-clc;
-clear all;
-close all;
-x = input('input sequence')
-l1 = length(x)
-y = xcorr(x)
-disp(y)
-l2=length(y)
-y1=coil(l2/2)
-disp(y1)
-for p =0:y1-1
-	if(y(y1-1)==y(y1+1))
-		disp('y is symmetric')
-	else
-		disp('y is not symmetric')
-	end
-end
-
-
-
-
-
-
-
-
-d)  auto correction using formula method
-
-
-clc;
-clear all;
-close all;
-x = input('input sequence')
-h = flip(x)
-l1 = length(x)
-l2 = length(h)
-N = l1+l2-1
-x = [x,zeros(1,N-l1)]
-h = [h,zeros(1,N-l2)]
-for i = 1:N
-	y(i)=0
-	for j = 1:N
-		k = i-j+1
-		if k<=0
-			k = k + N
-		end
-	y(i)=y(i)+x(j)*h(k)
-	end
-end
-disp(y)
-stem(y)
-xlabel('x')
-ylabel('y')
-title('output sequence')
-
-
-
-
-e) cross correction 
-
-
-clc;
-clear all;
-close all;
-x = input('first input sequence = ')
-z = input('second input sequence = ')
-l1 = length(x)
-l2 = length(z)
-y = xcorr(x,z)
-y1=round(y)
-disp(y1)
-subplot(2,2,1)
-stem(x)
-xlabel('x')
-ylabel('y')
-title('first input signal)
-subplot(2,2,2)
-stem(z)
-xlabel('x')
-ylabel('y')
-title('second input signal')
-subplot(2,2,3)
-stem(y1)
-xlabel('x')
-ylabel('y')
-title('output sequence')
+LED_BUILTIN-----------------------------------------------------------------
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT); 
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH); 
+  delay(1000); 
+  digitalWrite(LED_BUILTIN, LOW); 
+  delay(1000); 
+}
+-------------------------------------------------------------------------------------
+BLINK EXTERNAL--
+int ledPin = 16; 
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(ledPin, HIGH); 
+  delay(1000); 
+  digitalWrite(ledPin, LOW); 
+  delay(1000); 
+}
+---------------------------------------------------------------------------------
+FADE--
+int ledPin = 16; 
+int brightness = 0; 
+int fadeAmount = 5; 
+
+void setup() {
+  pinMode(ledPin, OUTPUT); 
+}
+
+void loop() {
+  analogWrite(ledPin, brightness); 
+  brightness = brightness + fadeAmount; 
+
+  if (brightness == 0 || brightness == 255) { 
+    fadeAmount = -fadeAmount;
+  }
+
+  delay(30); 
+}
+--------------------------------------------------------------------------
+--DHT11--
+#include <DHT.h>
+
+#define DHTPIN 2    
+#define DHTTYPE DHT11   
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600); 
+  dht.begin(); 
+}
+
+void loop() {
+  delay(2000); 
+
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature(); 
+
+  Serial.print("Humidity: ");
+  Serial.print(humidity);
+  Serial.print("%  Temperature: ");
+  Serial.print(temperature);
+  Serial.println("°C");
+}
+------------------------------------------------------------------------------
+--ULTRASONIC--
+#define trig 4
+#define echo 16
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trig,OUTPUT);
+  pinMode(echo,INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trig,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig,LOW);
+  duration = pulseIn(echo,HIGH);
+  distance = duration * 0.034/2;
+  if (distance <= 50){
+    digitalWrite(LED_BUILTIN, LOW);
+    Serial.println("LED is in ON state");
+   }
+   else{
+    digitalWrite(LED_BUILTIN,HIGH);
+    Serial.println("LED is in OFF state");
+   }
+  Serial.print("Distance is ");
+  Serial.println(distance);
+}
+---------------------------------------------------------------------------
+--SERVO--
+#include<Servo.h>
+Servo Myservo;
+int pos;
+void setup()
+{
+Myservo.attach(16);
+}
+
+void loop()
+{
+ 
+ 
+for(pos=0;pos<=180;pos++){
+Myservo.write(pos);
+delay(15);
+}
+  delay(1000);
+ 
+  for(pos=180;pos>=0;pos--){
+Myservo.write(pos);
+delay(15);
+}
+  delay(1000);
+ 
+}
+-----------------------------------------------------------------------------------
+---STEPPER---
+#include <Stepper.h>
+#define stepsPerRevolution 200
+Stepper myStepper(stepsPerRevolution, 16,5, 4, 14);
+
+void setup() {
+  
+  myStepper.setSpeed(60);
+}
+
+void loop() {
+ 
+  myStepper.step(stepsPerRevolution);
+  delay(1000);
+
+ 
+  myStepper.step(-stepsPerRevolution);
+  delay(1000);
+}
+--------------------------------------------------------------
+--7 SEGMENT---
+int a = 2; // Digital pin connected to segment A
+int b = 3; // Digital pin connected to segment B
+int c = 4; // Digital pin connected to segment C
+int d = 5; // Digital pin connected to segment D
+int e = 6; // Digital pin connected to segment E
+int f = 7; // Digital pin connected to segment F
+int g = 8; // Digital pin connected to segment G
+
+void setup() {
+  // Set the digital pins as outputs
+  pinMode(a, OUTPUT);
+  pinMode(b, OUTPUT);
+  pinMode(c, OUTPUT);
+  pinMode(d, OUTPUT);
+  pinMode(e, OUTPUT);
+  pinMode(f, OUTPUT);
+  pinMode(g, OUTPUT);
+}
+
+void loop() {
+  // Display the number 0
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, LOW);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 1
+  digitalWrite(a, LOW);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, LOW);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 2
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, LOW);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 3
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 4
+  digitalWrite(a, LOW);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 5
+  digitalWrite(a, HIGH);
+  digitalWrite(b, LOW);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 6
+  digitalWrite(a, HIGH);
+  digitalWrite(b, LOW);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 7
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, LOW);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 8
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  
+  delay(1000); // Wait for 1 second
+  
+  // Display the number 9
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+delay(1000); // Wait for 1 second
+}
+
+---------------------------------------------------------------------------------------
+
 
 
